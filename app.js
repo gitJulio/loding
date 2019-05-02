@@ -31,6 +31,11 @@ app.get('/', function(req, res) {
     var arrayResultado = linea.split("-").map(String);
     var ordenArray = [];
 
+    var secuencia1 = 0;
+    var secuencia2 = 0;
+    var secuencia3 = 0;
+    var secuencia4 = 0;
+
     function comparar(a, b) {
       return a - b;
     }
@@ -46,24 +51,51 @@ app.get('/', function(req, res) {
         devuelveResultados = devuelveResultados + '-' + item;
       }
 
-      if (item % 2) {
+      if (item % 2 == 1) {
         contadorImpar++;
       } else {
         contadorPar++;
       }
 
+      if (item < 9) {
+        secuencia1++;
+      }
+
+      if (item > 9 && item < 20) {
+        secuencia2++;
+      }
+
+      if (item > 19 && item < 30) {
+        secuencia3++;
+      }
+
+      if (item > 29) {
+        secuencia4++;
+      }
+
     })
-    // console.log(devuelveResultados);
-    if (contadorPar > contadorImpar) {
-      console.log("Par" + contadorPar);
-    } else {
-      console.log("Impar" + contadorImpar);
-    }
+    console.log(devuelveResultados);
+    /******************TIPO**********/
+    // if (contadorPar > contadorImpar) {
+    //   console.log("Par" + contadorPar);
+    // }
+    //
+    // if (contadorPar < contadorImpar) {
+    //   console.log("Impar" + contadorImpar);
+    // }
+    //
+    // if (contadorPar == contadorImpar) {
+    //   console.log("igual");
+    // }
+    /***************FIN TIPO********/
 
-    if (contadorPar == contadorImpar) {
-      console.log("igual");
-    }
+    /*************SECUENCIA********/
 
+    // console.log(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4);
+
+    /**********FIN SECUENCIA*******/
+
+    contadorImpar, contadorImpra = 0;
 
   });
 
