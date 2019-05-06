@@ -3,8 +3,10 @@ var app = express()
 var fs = require('fs');
 const readline = require("readline");
 var resultadosFinalProcesado = [];
+var bodyParser = require('body-parser')
 
-app.get('/', function(req, res) {
+app.get('/operacion/:opcion', function(req, res) {
+  console.log(req.params.opcion);
   var resultadosOrden = [];
 
   // fs.readFile('archivo.txt', 'utf-8', (err, data) => {
@@ -74,31 +76,37 @@ app.get('/', function(req, res) {
       }
 
     })
-    console.log(devuelveResultados);
+    if (req.params.opcion == 1) {
+      console.log(devuelveResultados);
+
+    }
     /******************TIPO**********/
-    // if (contadorPar > contadorImpar) {
-    //   console.log("Par" + contadorPar);
-    // }
-    //
-    // if (contadorPar < contadorImpar) {
-    //   console.log("Impar" + contadorImpar);
-    // }
-    //
-    // if (contadorPar == contadorImpar) {
-    //   console.log("igual");
-    // }
+    if (req.params.opcion == 2) {
+      if (contadorPar > contadorImpar) {
+        console.log("Par" + contadorPar);
+      }
+
+      if (contadorPar < contadorImpar) {
+        console.log("Impar" + contadorImpar);
+      }
+
+      if (contadorPar == contadorImpar) {
+        console.log("igual");
+      }
+    }
     /***************FIN TIPO********/
 
     /*************SECUENCIA********/
 
-    // console.log(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4);
+    if (req.params.opcion == 3) {
+      console.log(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4);
+    }
 
     /**********FIN SECUENCIA*******/
 
     contadorImpar, contadorImpra = 0;
 
   });
-
   res.send("Terminado")
 })
 
