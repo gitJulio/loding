@@ -6,8 +6,8 @@ var resultadosFinalProcesado = [];
 var bodyParser = require('body-parser')
 
 app.get('/operacion/:opcion', function(req, res) {
-  console.log(req.params.opcion);
-  var resultadosOrden = [];
+
+  var resultadosOrden;;
 
   // fs.readFile('archivo.txt', 'utf-8', (err, data) => {
   //   if (err) {
@@ -26,6 +26,8 @@ app.get('/operacion/:opcion', function(req, res) {
 
 
   lector.on("line", linea => {
+
+    resultadosOrden = 'a';
     var devuelveResultados = '';
     var contador = 0;
     var contadorPar = 0;
@@ -77,7 +79,8 @@ app.get('/operacion/:opcion', function(req, res) {
 
     })
     if (req.params.opcion == 1) {
-      console.log(devuelveResultados);
+      // console.log(devuelveResultados);
+      asigna(devuelveResultados)
 
     }
     /******************TIPO**********/
@@ -92,6 +95,7 @@ app.get('/operacion/:opcion', function(req, res) {
 
       if (contadorPar == contadorImpar) {
         console.log("igual");
+
       }
     }
     /***************FIN TIPO********/
@@ -103,11 +107,29 @@ app.get('/operacion/:opcion', function(req, res) {
     }
 
     /**********FIN SECUENCIA*******/
-
     contadorImpar, contadorImpra = 0;
 
   });
-  res.send("Terminado")
+
+  var ver = [];
+  async function asigna(data) {
+    ver.push(data)
+  }
+
+
+  setTimeout(() => {
+    console.log(ver[0]);
+    res.send(ver);
+
+  }, 1000)
+
+
+
+
+
+
+
 })
+
 
 app.listen(3000)
