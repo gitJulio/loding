@@ -86,16 +86,18 @@ app.get('/operacion/:opcion', function(req, res) {
     /******************TIPO**********/
     if (req.params.opcion == 2) {
       if (contadorPar > contadorImpar) {
-        console.log("Par" + contadorPar);
+        // console.log("Par" + contadorPar);
+        asigna("Par" + contadorPar)
       }
 
       if (contadorPar < contadorImpar) {
-        console.log("Impar" + contadorImpar);
+        // console.log("Impar" + contadorImpar);
+        asigna("Impar" + contadorImpar)
       }
 
       if (contadorPar == contadorImpar) {
-        console.log("igual");
-
+        // console.log("igual");
+        asigna("igual")
       }
     }
     /***************FIN TIPO********/
@@ -103,7 +105,8 @@ app.get('/operacion/:opcion', function(req, res) {
     /*************SECUENCIA********/
 
     if (req.params.opcion == 3) {
-      console.log(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4);
+      // console.log(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4);
+      asigna(secuencia1 + " - " + secuencia2 + " - " + secuencia3 + " - " + secuencia4)
     }
 
     /**********FIN SECUENCIA*******/
@@ -118,13 +121,8 @@ app.get('/operacion/:opcion', function(req, res) {
 
 
   setTimeout(() => {
-    console.log(ver[0]);
     res.send(ver);
-
-  }, 1000)
-
-
-
+  }, 100)
 
 
 
