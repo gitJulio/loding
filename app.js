@@ -111,7 +111,7 @@ app.get('/operacion/:opcion', function(req, res) {
 
         /**********FIN SECUENCIA*******/
         contadorImpar, contadorImpra = 0;
-        console.log("");
+        console.log("lll");
     });
 
     var ver = [];
